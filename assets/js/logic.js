@@ -3,8 +3,8 @@ let time = questions.length * 15; // Assuming 15 seconds per question
 let timerId;
 
 // Sound effects
-const correctSound = new Audio('./assets/sounds/correct.wav');
-const wrongSound = new Audio('./assets/sounds/incorrect.wav');
+const correctSound = new Audio('./assets/sfx/correct.wav');
+const wrongSound = new Audio('./assets/sfx/incorrect.wav');
 
 // DOM Elements
 const timerEl = document.getElementById('time');
