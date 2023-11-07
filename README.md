@@ -50,4 +50,4 @@ Navigate to `highscores.html` to view the high scores.
 
 ## Deployed Application
 
-You can access the live application at the following URL: [Coding Quiz Challenge Live](https://your-deployment-link.com)
+You can access the live application at the following URL: [Coding Quiz Challenge Live](claudiabiplus.github.io/coding-quiz/)
