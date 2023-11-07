@@ -1,8 +1,12 @@
 let currentQuestionIndex = 0;
-let time = questions.length * 15; // 15 seconds per question
+let time = questions.length * 15; // Assuming 15 seconds per question
 let timerId;
 
-// Elements
+// Sound effects
+const correctSound = new Audio('./assets/sounds/correct.wav');
+const wrongSound = new Audio('./assets/sounds/incorrect.wav');
+
+// DOM Elements
 const timerEl = document.getElementById('time');
 const startButton = document.getElementById('start');
 const questionsEl = document.getElementById('questions');
@@ -12,7 +16,6 @@ const endScreenEl = document.getElementById('end-screen');
 const finalScoreEl = document.getElementById('final-score');
 const initialsEl = document.getElementById('initials');
 const submitBtn = document.getElementById('submit');
-const feedbackEl = document.getElementById('feedback');
 
 function startQuiz() {
   document.getElementById('start-screen').classList.add('hide');
@@ -41,9 +44,9 @@ function questionClick() {
     time -= 10;
     if (time < 0) time = 0;
     timerEl.textContent = time;
-    feedback('Wrong!', 'red');
+    wrongSound.play();
   } else {
-    feedback('Correct!', 'green');
+    correctSound.play();
   }
   currentQuestionIndex++;
   if (currentQuestionIndex === questions.length) {
@@ -80,15 +83,6 @@ function saveHighscore() {
     window.localStorage.setItem("highscores", JSON.stringify(highscores));
     window.location.href = 'highscores.html';
   }
-}
-
-function feedback(message, color) {
-  feedbackEl.textContent = message;
-  feedbackEl.style.color = color;
-  feedbackEl.classList.remove('hide');
-  setTimeout(() => {
-    feedbackEl.classList.add('hide');
-  }, 1000);
 }
 
 // Event listeners
